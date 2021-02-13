@@ -1,0 +1,13 @@
+{
+    "name": "viktigpetterr/lunchtime",
+    "description": "Slack bot that recomends lunch alternatives",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "viktigpetterr",
+            "email": "viktor.pettersson@debricked.com"
+        }
+    ],
+    "require": {}
+}
