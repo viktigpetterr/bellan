@@ -1,7 +1,7 @@
 <?php
 
-use lunchtime\restaurants\Restaurant;
 use PHPUnit\Framework\TestCase;
+use viktigpetterr\lunchtime\restaurants\Restaurant;
 
 abstract class RestaurantTest extends TestCase
 {

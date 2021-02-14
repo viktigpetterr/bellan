@@ -1,8 +1,10 @@
 <?php
 
-namespace lunchtime;
+namespace viktigpetterr\lunchtime;
 
-use lunchtime\restaurants\Valfarden;
+use viktigpetterr\lunchtime\restaurants\Valfarden;
+
+require __DIR__ . '/../vendor/autoload.php';
 
 $restaurants =
     [

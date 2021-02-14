@@ -1,6 +1,6 @@
 <?php
 
-use lunchtime\restaurants\Valfarden;
+use viktigpetterr\lunchtime\restaurants\Valfarden;
 
 class ValfardenTest extends RestaurantTest
 {

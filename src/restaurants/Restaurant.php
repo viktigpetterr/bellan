@@ -1,7 +1,6 @@
 <?php
 
-
-namespace lunchtime\restaurants;
+namespace viktigpetterr\lunchtime\restaurants;
 
 
 use GuzzleHttp\Client;
@@ -31,7 +30,7 @@ abstract class Restaurant implements RestaurantInterface
     }
 
     /**
-     * GET request for the urls' html body.
+     * GET request for the html containing lunch dishes.
      *
      * @param string $url
      * @return StreamInterface|null

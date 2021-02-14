@@ -1,7 +1,6 @@
 <?php
 
-
-namespace lunchtime\restaurants;
+namespace viktigpetterr\lunchtime\restaurants;
 
 
 /**

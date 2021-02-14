@@ -1,9 +1,8 @@
 <?php
 
+namespace viktigpetterr\lunchtime;
 
-namespace lunchtime;
-
-use lunchtime\restaurants\Restaurant;
+use viktigpetterr\lunchtime\restaurants\Restaurant;
 use wrapi\slack\slack;
 
 /**
@@ -33,9 +32,9 @@ class Lunchtime
     public function execute(): void
     {
         foreach ($this->restaurants as $restaurant) {
-            $menus = $restaurant->parse();
-            foreach ($menus as $menu) {
-                printf($menu . "\n");
+            $dishes = $restaurant->parse();
+            foreach ($dishes as $dish) {
+                printf($dish . "\n");
             }
         }
     }
