@@ -1,7 +1,14 @@
 <?php
 
+
+namespace restaurants;
+
 use viktigpetterr\lunchtime\restaurants\Valfarden;
 
+/**
+ * Class ValfardenTest
+ * @package restaurants
+ */
 class ValfardenTest extends RestaurantTest
 {
     private const HTML_FILE = '/static/valfarden.html';

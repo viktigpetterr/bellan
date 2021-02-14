@@ -1,5 +1,6 @@
 <?php
 
+
 namespace viktigpetterr\lunchtime;
 
 use viktigpetterr\lunchtime\restaurants\Valfarden;

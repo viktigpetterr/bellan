@@ -1,7 +1,7 @@
 <?php
 
-namespace viktigpetterr\lunchtime\restaurants;
 
+namespace viktigpetterr\lunchtime\restaurants;
 
 /**
  * Interface RestaurantInterface
