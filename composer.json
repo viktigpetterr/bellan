@@ -1,13 +1,24 @@
 {
-    "name": "viktigpetterr/lunchtime",
-    "description": "Slack bot that recomends lunch alternatives",
-    "type": "project",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "viktigpetterr",
-            "email": "viktor.pettersson@debricked.com"
-        }
-    ],
-    "require": {}
+  "name": "viktigpetterr/lunchtime",
+  "description": "Slack bot that recommends lunch alternatives",
+  "type": "project",
+  "license": "MIT",
+  "homepage": "https://github.com/viktigpetterr/lunchtime",
+  "authors": [
+    {
+      "name": "viktigpetterr",
+      "email": "viktor.pettersson@debricked.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "lunchtime\\": "src/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5"
+  },
+  "require": {
+    "wrapi/slack": "^1.0"
+  }
 }
