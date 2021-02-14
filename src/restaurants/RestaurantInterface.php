@@ -13,9 +13,10 @@ interface RestaurantInterface
     /**
      * Parse the restaurants lunch alternatives
      *
-     * @return Menu[]
+     * @param string $html
+     * @return string[]
      */
-    public function parse(): array;
+    public function parse(string $html = ''): array;
 
     /**
      * Return the name of the restaurant

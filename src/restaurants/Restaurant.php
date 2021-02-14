@@ -17,9 +17,9 @@ abstract class Restaurant implements RestaurantInterface
 
     protected Client $client;
     /**
-     * @var Menu[] $menus
+     * @var string[] $menus
      */
-    private array $menus;
+    protected array $dishes;
 
     /**
      * Restaurant constructor.
@@ -27,7 +27,7 @@ abstract class Restaurant implements RestaurantInterface
     public function __construct()
     {
         $this->client = new Client();
-        $this->menus = [];
+        $this->dishes = [];
     }
 
     /**
@@ -36,29 +36,18 @@ abstract class Restaurant implements RestaurantInterface
      * @param string $url
      * @return StreamInterface|null
      */
-    protected function request(string $url): ?StreamInterface
+    protected function request(string $url): ?string
     {
         try
         {
-            return $this->client->request($url)->getBody();
+            return $this->client->get($url)->getBody()->getContents();
         }
         catch (GuzzleException $e)
         {
-            printf("\n");
             printf($e);
-            printf("\n");
 
             return null;
         }
     }
 
-    /**
-     * @return Menu[]
-     */
-    public abstract function parse(): array;
-
-    /**
-     * @inheritDoc
-     */
-    public abstract function __toString(): string;
 }
