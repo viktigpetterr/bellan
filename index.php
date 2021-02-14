@@ -5,10 +5,11 @@ namespace viktigpetterr\lunchtime;
 
 use viktigpetterr\lunchtime\restaurants\Valfarden;
 
-require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
+$hookUrl = '';
 $restaurants =
     [
         new Valfarden(),
     ];
-(new Lunchtime('token', $restaurants))->execute();
+(new Lunchtime($hookUrl, $restaurants))->execute();

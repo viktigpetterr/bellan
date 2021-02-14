@@ -3,8 +3,9 @@
 
 namespace viktigpetterr\lunchtime;
 
+
+use Maknz\Slack\Client;
 use viktigpetterr\lunchtime\restaurants\Restaurant;
-use wrapi\slack\slack;
 
 /**
  * Class Lunchtime
@@ -12,7 +13,8 @@ use wrapi\slack\slack;
  */
 class Lunchtime
 {
-    private slack $slack;
+
+    private Client $slack;
 
     /**
      * @var Restaurant[]
@@ -21,12 +23,12 @@ class Lunchtime
 
     /**
      * Lunchtime constructor.
-     * @param string       $token
+     * @param string       $hookUrl
      * @param Restaurant[] $restaurants
      */
-    public function __construct(string $token, array $restaurants)
+    public function __construct(string $hookUrl, array $restaurants)
     {
-        $this->slack = new slack($token);
+        $this->slack = new Client($hookUrl);
         $this->restaurants = $restaurants;
     }
 
@@ -34,7 +36,8 @@ class Lunchtime
     {
         foreach ($this->restaurants as $restaurant) {
             $dishes = $restaurant->parse();
-            foreach ($dishes as $dish) {
+            foreach ($dishes as $dish)
+            {
                 printf($dish . "\n");
             }
         }
