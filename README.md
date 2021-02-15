@@ -2,6 +2,7 @@
 
 ![Packagist Version](https://img.shields.io/packagist/v/viktigpetterr/lunchtime)
 ![Packagist License](https://img.shields.io/packagist/l/viktigpetterr/lunchtime)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/viktigpetterr/lunchtime/PHP%20Composer)
 
 **Setup**
 ```sh
