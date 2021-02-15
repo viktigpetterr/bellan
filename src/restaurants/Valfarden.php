@@ -23,14 +23,17 @@ class Valfarden extends Restaurant
         {
             $html = $this->request(self::URL);
         }
-        preg_match_all(self::REGEX, $html, $matches);
-        $date = $this->getDate();
-        $matches = $matches[1];
-        foreach ($matches as $key => $match)
+        if (!empty($html))
         {
-            if (strstr($match, " $date ") && key_exists($key + 1, $matches))
+            preg_match_all(self::REGEX, $html, $matches);
+            $date = $this->getDate();
+            $matches = $matches[1];
+            foreach ($matches as $key => $match)
             {
-                $this->dishes[] = htmlspecialchars_decode($matches[$key + 1]);
+                if (strstr($match, " $date ") && key_exists($key + 1, $matches))
+                {
+                    $this->dishes[] = trim(html_entity_decode($matches[$key + 1]));
+                }
             }
         }
 

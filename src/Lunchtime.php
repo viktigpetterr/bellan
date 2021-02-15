@@ -4,6 +4,7 @@
 namespace viktigpetterr\lunchtime;
 
 
+use GuzzleHttp\Exception\ConnectException;
 use Maknz\Slack\Client;
 use viktigpetterr\lunchtime\restaurants\Restaurant;
 
@@ -36,9 +37,30 @@ class Lunchtime
         $this->restaurants = $restaurants;
     }
 
-    public function execute(): void
+    /**
+     * @return string
+     */
+    public function execute(): string
     {
-        $message = $this->getMessageHeader();
+        $message = $this->createMessage();
+        try
+        {
+            $this->slack->send($message);
+        }
+        catch (ConnectException $e)
+        {
+            printf($e);
+        }
+
+        return $message;
+    }
+
+    /**
+     * @return string
+     */
+    private function createMessage(): string
+    {
+        $message = self::getMessageHeader();
         foreach ($this->restaurants as $restaurant) {
             $dishes = $restaurant->parse();
             $message .= "\t$restaurant:\n";
@@ -49,16 +71,23 @@ class Lunchtime
             }
             $message .= "\n";
         }
-        $message .= $this->getMessageFooter();
-        $this->slack->send($message);
+        $message .= self::getMessageFooter();
+
+        return $message;
     }
 
-    private function getMessageHeader(): string
+    /**
+     * @return string
+     */
+    private static function getMessageHeader(): string
     {
         return "God förmiddag! Bellan här. Idag serveras följande lunchalternativ:\n\n";
     }
 
-    private function getMessageFooter(): string
+    /**
+     * @return string
+     */
+    private static function getMessageFooter(): string
     {
         return "\nSmaklig spis!";
     }

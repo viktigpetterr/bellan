@@ -3,6 +3,7 @@
 
 use viktigpetterr\lunchtime\Lunchtime;
 use PHPUnit\Framework\TestCase;
+use viktigpetterr\lunchtime\restaurants\Spill;
 use viktigpetterr\lunchtime\restaurants\Valfarden;
 
 /**
@@ -13,12 +14,15 @@ class LunchtimeTest extends TestCase
 
     public function testExecute()
     {
-        $webhook = 'https://hooks.slack.com/services/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';
+        $webhook = 'test';
         $restaurants =
             [
                 new Valfarden(),
+                new Spill(),
             ];
         $lunchtime = new Lunchtime($webhook, $restaurants);
-        $lunchtime->execute();
+        $message = $lunchtime->execute();
+        $this->assertStringContainsString($restaurants[0], $message);
+        $this->assertStringContainsString($restaurants[1], $message);
     }
 }
