@@ -13,5 +13,5 @@ $ composer install
 
 **Run tests**
 ```sh
-$  ./vendor/bin/phpunit tests
+$  composer test
 ```
