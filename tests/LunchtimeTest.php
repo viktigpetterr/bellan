@@ -13,12 +13,12 @@ class LunchtimeTest extends TestCase
 
     public function testExecute()
     {
-        $hookUrl = 'test';
+        $webhook = 'https://hooks.slack.com/services/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';
         $restaurants =
             [
                 new Valfarden(),
             ];
-        $lunchtime = new Lunchtime($hookUrl, $restaurants);
+        $lunchtime = new Lunchtime($webhook, $restaurants);
         $lunchtime->execute();
     }
 }
