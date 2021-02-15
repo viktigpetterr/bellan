@@ -47,12 +47,10 @@ class Lunchtime
         {
             $this->slack->send($message);
         }
-        catch (ConnectException $e)
+        catch (ConnectException)
         {
-            printf($e);
+            return $message;
         }
-
-        return $message;
     }
 
     /**
@@ -66,7 +64,7 @@ class Lunchtime
             $message .= "\t$restaurant:\n";
             foreach ($dishes as $dish)
             {
-                printf($dish . "\n");
+                //printf($dish . "\n");
                 $message .= "\t\t - $dish\n";
             }
             $message .= "\n";
