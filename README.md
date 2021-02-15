@@ -1,5 +1,8 @@
 # Lunchtime
 
+![Packagist Version](https://img.shields.io/packagist/v/viktigpetterr/lunchtime)
+![Packagist License](https://img.shields.io/packagist/l/viktigpetterr/lunchtime)
+
 **Setup**
 ```sh
 $ composer install
