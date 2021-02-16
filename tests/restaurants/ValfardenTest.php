@@ -11,7 +11,7 @@ use viktigpetterr\lunchtime\restaurants\Valfarden;
  */
 class ValfardenTest extends RestaurantTest
 {
-    private const HTML_FILE = '/static/valfarden.html';
+    private const HTML_FILE = __DIR__ . '/static/valfarden.html';
 
     public function setUp(): void
     {
@@ -21,7 +21,7 @@ class ValfardenTest extends RestaurantTest
 
     public function testParse(): void
     {
-        $menus = $this->restaurant->parse(file_get_contents(__DIR__ . self::HTML_FILE));
+        $menus = $this->restaurant->parse(file_get_contents(self::HTML_FILE));
         $this->assertCount(1, $menus);
         $this->assertEquals("test & test", $menus[0]);
     }

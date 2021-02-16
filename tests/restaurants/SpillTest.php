@@ -11,7 +11,7 @@ use viktigpetterr\lunchtime\restaurants\Spill;
 class SpillTest extends RestaurantTest
 {
 
-    const HTML_FILE = '/static/spill.html';
+    const HTML_FILE = __DIR__ . '/static/spill.html';
 
     public function setUp(): void
     {
@@ -21,7 +21,7 @@ class SpillTest extends RestaurantTest
 
     public function testParse(): void
     {
-        $menus = $this->restaurant->parse();
+        $menus = $this->restaurant->parse(file_get_contents(self::HTML_FILE));
         $this->assertCount(2, $menus);
         $this->assertEquals("Köttbullar, lingon, gurka, gräddsås", $menus[0]);
         $this->assertEquals("Vegetariskt; Kikärtsbullar med samma tillbehör", $menus[1]);
