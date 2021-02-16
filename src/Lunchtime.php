@@ -38,9 +38,9 @@ class Lunchtime
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function execute(): string
+    public function execute(): ?string
     {
         $message = $this->createMessage();
         try
@@ -51,6 +51,8 @@ class Lunchtime
         {
             return $message;
         }
+
+        return null;
     }
 
     /**

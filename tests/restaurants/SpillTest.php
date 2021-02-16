@@ -5,6 +5,9 @@ namespace restaurants;
 
 use viktigpetterr\lunchtime\restaurants\Spill;
 
+/**
+ * Class SpillTest
+ */
 class SpillTest extends RestaurantTest
 {
 
