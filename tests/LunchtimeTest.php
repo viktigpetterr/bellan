@@ -1,10 +1,10 @@
 <?php
 
 
-use viktigpetterr\lunchtime\Lunchtime;
+use viktigpetterr\bellan\Lunchtime;
 use PHPUnit\Framework\TestCase;
-use viktigpetterr\lunchtime\restaurants\Spill;
-use viktigpetterr\lunchtime\restaurants\Valfarden;
+use viktigpetterr\bellan\restaurants\Spill;
+use viktigpetterr\bellan\restaurants\Valfarden;
 
 /**
  * Class LunchtimeTest

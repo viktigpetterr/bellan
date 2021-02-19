@@ -4,7 +4,7 @@
 namespace restaurants;
 
 use PHPUnit\Framework\TestCase;
-use viktigpetterr\lunchtime\restaurants\Restaurant;
+use viktigpetterr\bellan\restaurants\Restaurant;
 
 /**
  * Abstract Class RestaurantTest

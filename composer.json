@@ -1,5 +1,5 @@
 {
-  "name": "viktigpetterr/lunchtime",
+  "name": "viktigpetterr/bellan",
   "description": "Slack bot that recommends lunch alternatives",
   "type": "library",
   "license": "MIT",
@@ -12,7 +12,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "viktigpetterr\\lunchtime\\": "src/"
+      "viktigpetterr\\bellan\\": "src/"
     }
   },
   "scripts": {
@@ -24,6 +24,8 @@
   "require": {
     "ext-dom": "*",
     "ext-libxml": "*",
-    "alek13/slack": "^2.0"
+    "alek13/slack": "^2.0",
+    "symfony/yaml": "^5.2",
+    "peppeocchi/php-cron-scheduler": "^2.4"
   }
 }

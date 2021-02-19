@@ -1,11 +1,11 @@
 <?php
 
 
-namespace viktigpetterr\lunchtime\restaurants;
+namespace viktigpetterr\bellan\restaurants;
 
 /**
  * Class Spill
- * @package viktigpetterr\lunchtime\restaurants
+ * @package bellan\restaurants
  */
 class Spill extends Restaurant
 {
@@ -33,6 +33,7 @@ class Spill extends Restaurant
                 if (!empty($match))
                 {
                     $match = str_replace('&nbsp;', ' ', $match);
+                    $match = trim(html_entity_decode($match));
                     $this->dishes[] = trim($match);
                 }
             }

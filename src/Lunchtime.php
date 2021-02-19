@@ -1,16 +1,16 @@
 <?php
 
 
-namespace viktigpetterr\lunchtime;
+namespace viktigpetterr\bellan;
 
 
 use GuzzleHttp\Exception\ConnectException;
 use Maknz\Slack\Client;
-use viktigpetterr\lunchtime\restaurants\Restaurant;
+use viktigpetterr\bellan\restaurants\Restaurant;
 
 /**
  * Class Lunchtime
- * @package lunchtime
+ * @package bellan
  */
 class Lunchtime
 {

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace viktigpetterr\lunchtime\restaurants;
+namespace viktigpetterr\bellan\restaurants;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
@@ -9,7 +9,7 @@ use Psr\Http\Message\StreamInterface;
 
 /**
  * Class Restaurant
- * @package lunchtime\restaurants
+ * @package bellan\restaurants
  */
 abstract class Restaurant implements RestaurantInterface
 {

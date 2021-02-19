@@ -3,7 +3,7 @@
 namespace restaurants;
 
 
-use viktigpetterr\lunchtime\restaurants\Spill;
+use viktigpetterr\bellan\restaurants\Spill;
 
 /**
  * Class SpillTest

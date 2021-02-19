@@ -3,7 +3,7 @@
 
 namespace restaurants;
 
-use viktigpetterr\lunchtime\restaurants\Valfarden;
+use viktigpetterr\bellan\restaurants\Valfarden;
 
 /**
  * Class ValfardenTest
