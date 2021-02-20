@@ -34,7 +34,12 @@ class Lunchtime
                 'username' => 'Herr Roos',
             ];
         $this->slack = new Client($webhook, $options);
-        $this->restaurants = $restaurants;
+
+        foreach ($restaurants as $key => $restaurant)
+        {
+            $namespace = "viktigpetterr\\bellan\\restaurants\\$restaurant";
+            $this->restaurants[] = new $namespace;
+        }
     }
 
     /**
@@ -47,7 +52,7 @@ class Lunchtime
         {
             $this->slack->send($message);
         }
-        catch (ConnectException)
+        catch (ConnectException $e)
         {
             return $message;
         }
