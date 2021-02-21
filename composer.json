@@ -3,7 +3,7 @@
   "description": "Slack bot that recommends lunch alternatives",
   "type": "library",
   "license": "MIT",
-  "homepage": "https://github.com/viktigpetterr/lunchtime",
+  "homepage": "https://github.com/viktigpetterr/bellan",
   "authors": [
     {
       "name": "viktigpetterr",
