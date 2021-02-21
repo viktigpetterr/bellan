@@ -1,4 +1,4 @@
-# Lunchtime
+# Bellan
 
 ![Packagist Version](https://img.shields.io/packagist/v/viktigpetterr/lunchtime)
 ![Packagist License](https://img.shields.io/packagist/l/viktigpetterr/lunchtime)
