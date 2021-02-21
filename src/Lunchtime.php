@@ -52,9 +52,12 @@ class Lunchtime
         {
             $this->slack->send($message);
         }
-        catch (ConnectException $e){}
+        catch (ConnectException $e)
+        {
+            return "$message\n\n\n{$e->getMessage()}";    
+        }
 
-        return $message;
+        return null;
     }
 
     /**
