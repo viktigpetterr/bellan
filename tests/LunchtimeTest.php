@@ -11,18 +11,20 @@ use viktigpetterr\bellan\restaurants\Valfarden;
  */
 class LunchtimeTest extends TestCase
 {
+    private const WEB_HOOK = 'test';
+    private const CURL_ERROR = 'Could not resolve host: ' . self::WEB_HOOK;
 
     public function testExecute()
     {
-        $webhook = 'test';
         $restaurants =
             [
-                new Valfarden(),
-                new Spill(),
+                'Valfarden',
+                'Spill',
             ];
-        $lunchtime = new Lunchtime($webhook, $restaurants);
+        $lunchtime = new Lunchtime(self::WEB_HOOK, $restaurants);
         $message = $lunchtime->execute();
-        $this->assertStringContainsString($restaurants[0], $message);
-        $this->assertStringContainsString($restaurants[1], $message);
+        $this->assertStringContainsString(new Valfarden(), $message);
+        $this->assertStringContainsString(new Spill(), $message);
+        $this->assertStringContainsString(self::CURL_ERROR, $message);
     }
 }

@@ -1,0 +1,4 @@
+WEB_HOOK: https://hooks.slack.com/services/*****
+RESTAURANTS:
+  - Valfarden
+  - Spill

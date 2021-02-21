@@ -1,19 +1,23 @@
-<?php require __DIR__ . '/vendor/autoload.php';
+<?php require_once __DIR__ . '/vendor/autoload.php';
 
+use GO\Scheduler;
 use Symfony\Component\Yaml\Yaml;
 use viktigpetterr\bellan\Lunchtime;
 
-$config = Yaml::parse(file_get_contents('config.example.yaml'));
-$webhook = $config['WEB_HOOK'];
-$postAt = $config['POST_AT'];
-$restaurants = $config['RESTAURANTS'];
+$workingHours = Yaml::parse(file_get_contents(__DIR__ . '/working-hours.yaml'));
+$days = $workingHours['DAYS'];
+$postAt = $workingHours['POST_AT'];
+[$hour, $minute] = explode(':', $postAt);
 
-foreach ($restaurants as $key => $restaurant)
-{
-    $namespace = "viktigpetterr\\bellan\\restaurants\\$restaurant";
-    $restaurants[$key] = new $namespace;
-}
-$message = (new Lunchtime($webhook, $restaurants))->execute();
-printf($message . "\n");
+(new Scheduler())
+    ->call(function () {
+        $config = Yaml::parse(file_get_contents(__DIR__ . '/bellan.yaml'));
+        return (new Lunchtime($config['WEB_HOOK'], $config['RESTAURANTS']))->execute();
+    })
+    ->at("$minute $hour * * $days")
+    ->output(__DIR__ . '/bellan.log')
+    ->run();
+
+
 
 

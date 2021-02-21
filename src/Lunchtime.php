@@ -25,7 +25,7 @@ class Lunchtime
     /**
      * Lunchtime constructor.
      * @param string       $webhook
-     * @param Restaurant[] $restaurants
+     * @param string[] $restaurants
      */
     public function __construct(string $webhook, array $restaurants)
     {
@@ -34,7 +34,12 @@ class Lunchtime
                 'username' => 'Herr Roos',
             ];
         $this->slack = new Client($webhook, $options);
-        $this->restaurants = $restaurants;
+
+        foreach ($restaurants as $restaurant)
+        {
+            $restaurant = "viktigpetterr\\bellan\\restaurants\\$restaurant";
+            $this->restaurants[] = new $restaurant;
+        }
     }
 
     /**
@@ -47,9 +52,9 @@ class Lunchtime
         {
             $this->slack->send($message);
         }
-        catch (ConnectException)
+        catch (ConnectException $e)
         {
-            return $message;
+            return "$message\n\n\n{$e->getMessage()}";    
         }
 
         return null;
