@@ -17,12 +17,12 @@ class LunchtimeTest extends TestCase
         $webhook = 'test';
         $restaurants =
             [
-                new Valfarden(),
-                new Spill(),
+                'Valfarden',
+                'Spill',
             ];
         $lunchtime = new Lunchtime($webhook, $restaurants);
         $message = $lunchtime->execute();
-        $this->assertStringContainsString($restaurants[0], $message);
-        $this->assertStringContainsString($restaurants[1], $message);
+        $this->assertStringContainsString(new Valfarden(), $message);
+        $this->assertStringContainsString(new Spill(), $message);
     }
 }
