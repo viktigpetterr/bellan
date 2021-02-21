@@ -1,7 +1,7 @@
 {
   "name": "viktigpetterr/bellan",
   "description": "Slack bot that recommends lunch alternatives",
-  "type": "library",
+  "type": "project",
   "license": "MIT",
   "homepage": "https://github.com/viktigpetterr/bellan",
   "authors": [
