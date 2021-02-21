@@ -17,7 +17,7 @@
 - ```sh
   $ cp bellan.example.yaml bellan.yaml
   ```
-- Open `bellan.yaml` and pase your Slack web hook.
+- Open `bellan.yaml` and paste your Slack web hook.
 
 
 - ```sh
