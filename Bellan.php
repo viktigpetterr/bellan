@@ -9,14 +9,16 @@ $days = $workingHours['DAYS'];
 $postAt = $workingHours['POST_AT'];
 [$hour, $minute] = explode(':', $postAt);
 
-(new Scheduler())
+$scheduler = new Scheduler();
+$scheduler
     ->call(function () {
         $config = Yaml::parse(file_get_contents(__DIR__ . '/bellan.yaml'));
         return (new Lunchtime($config['WEB_HOOK'], $config['RESTAURANTS']))->execute();
     })
-    ->at("$minute $hour * * $days")
     ->output(__DIR__ . '/bellan.log')
-    ->run();
+    ->at("$minute $hour * * $days");
+
+$scheduler->run();
 
 
 
