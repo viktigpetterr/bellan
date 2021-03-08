@@ -1,6 +1,5 @@
 .idea
 /vendor/
-.phpunit.cache
 bellan.log
 bellan.yaml
 working-hours.yaml
