@@ -11,7 +11,7 @@ class Spill extends Restaurant
 {
     private const NAME = 'SPILL';
     private const URL = 'https://restaurangspill.se/';
-    private const REGEX = '/<\/p><p>(.+?)<\/p><p>|<span style="font-size: 1.5rem;">(.+?)<\/span><\/p>[^<]+/';
+    private const REGEX = '/&nbsp;<\/p><p>(.+?)<\/p><p>|<span style="font-size: 1.5rem;">(.+? &nbsp;)<\/s/';
 
     /**
      * @inheritDoc
@@ -33,6 +33,7 @@ class Spill extends Restaurant
                 if (!empty($match))
                 {
                     $match = str_replace('&nbsp;', ' ', $match);
+                    $match = str_replace('  ', ' ', $match);
                     $match = trim(html_entity_decode($match));
                     $this->dishes[] = trim($match);
                 }

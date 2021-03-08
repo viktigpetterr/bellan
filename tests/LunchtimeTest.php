@@ -13,6 +13,7 @@ class LunchtimeTest extends TestCase
 {
     private const WEB_HOOK = 'test';
     private const CURL_ERROR = 'Could not resolve host: ' . self::WEB_HOOK;
+    private const BLACKLIST = ['<', '>'];
 
     public function testExecute()
     {
@@ -26,5 +27,9 @@ class LunchtimeTest extends TestCase
         $this->assertStringContainsString(new Valfarden(), $message);
         $this->assertStringContainsString(new Spill(), $message);
         $this->assertStringContainsString(self::CURL_ERROR, $message);
+        foreach (self::BLACKLIST as $symbol)
+        {
+            $this->assertStringNotContainsString($symbol, $message);
+        }
     }
 }

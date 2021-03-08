@@ -57,7 +57,7 @@ class Lunchtime
             return "$message\n\n\n{$e->getMessage()}";    
         }
 
-        return null;
+        return $message;
     }
 
     /**
