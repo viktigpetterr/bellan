@@ -7,8 +7,9 @@ use viktigpetterr\bellan\Lunchtime;
 $workingHours = Yaml::parse(file_get_contents(__DIR__ . '/working-hours.yaml'));
 $days = $workingHours['DAYS'];
 $postAt = $workingHours['POST_AT'];
+$timeZone = $workingHours['TIME_ZONE'];
+date_default_timezone_set($timeZone);
 [$hour, $minute] = explode(':', $postAt);
-
 $scheduler = new Scheduler();
 $scheduler
     ->call(function () {
