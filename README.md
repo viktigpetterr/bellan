@@ -6,28 +6,28 @@
 [![codecov](https://codecov.io/gh/viktigpetterr/bellan/branch/main/graph/badge.svg?token=DPW9GSYHUK)](https://codecov.io/gh/viktigpetterr/bellan)
 
 **Installation**
-- ```sh
+```sh
   $ git clone https://github.com/viktigpetterr/bellan.git
-  ```
-- ```sh
+```
+```sh
   $ cd bellan
-  ```
-- ```sh
+```
+```sh
   $ composer install
   ```
-- ```sh
+```sh
   $ cp bellan.example.yaml bellan.yaml
-  ```
+```
 - Open `bellan.yaml` and paste your Slack web hook.
 
 
-- ```sh
+```sh
   $ cp working-hours.example.yaml working-hours.yaml
-  ```  
-- ```sh
+```  
+```sh
   $ crontab -e
-  ```
-- Append the line `* * * * * /usr/bin/php /[path]/bellan/Bellan.php 1>> /dev/null 2>&1`. Make sure to change `[path]` to your path!
+```
+- Append the line `* * * * * /usr/bin/php /{path}/bellan/Bellan.php 1>> /dev/null 2>&1`. Make sure to change `{path}` to your path!
 
 **How to add a restaurant**
  - Create a restaurant class that extend `Restaurant.php` in `src/restaurants`.
