@@ -28,7 +28,10 @@ jobs:
 
       - name: Install dependencies
         if: steps.composer-cache.outputs.cache-hit != 'true'
-        run: composer install --prefer-dist --no-progress --no-suggest
+        run: composer install --prefer-dist --no-progress --no-suggest --no-scripts
+
+      - name: Run PHPStan
+        run: vendor/bin/phpstan analyse src tests --level 5
 
       - name: Run test suite
         run: composer test-coverage

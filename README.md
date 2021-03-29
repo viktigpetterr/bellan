@@ -16,15 +16,6 @@
   $ composer install
   ```
 ```sh
-  $ cp bellan.example.yaml bellan.yaml
-```
-- Open `bellan.yaml` and paste your Slack web hook.
-
-
-```sh
-  $ cp working-hours.example.yaml working-hours.yaml
-```  
-```sh
   $ crontab -e
 ```
 - Append the line `* * * * * /usr/bin/php /{path}/bellan/Bellan.php 1>> /dev/null 2>&1`. Make sure to change `{path}` to your path!

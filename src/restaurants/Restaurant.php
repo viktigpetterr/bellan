@@ -5,7 +5,6 @@ namespace viktigpetterr\bellan\restaurants;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
-use Psr\Http\Message\StreamInterface;
 
 /**
  * Class Restaurant
@@ -33,7 +32,7 @@ abstract class Restaurant implements RestaurantInterface
      * GET request for the html containing lunch dishes.
      *
      * @param string $url
-     * @return StreamInterface|null
+     * @return string|null
      */
     protected function request(string $url): ?string
     {
