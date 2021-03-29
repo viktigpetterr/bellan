@@ -17,10 +17,14 @@
   },
   "scripts": {
     "test": "vendor/bin/phpunit",
-    "test-coverage": "XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover coverage.xml"
+    "test-coverage": "XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover coverage.xml",
+    "post-install-cmd": [
+      "php install.php"
+    ]
   },
   "require-dev": {
-    "phpunit/phpunit": "^9.5"
+    "phpunit/phpunit": "^9.5",
+    "phpstan/phpstan": "^0.12.82"
   },
   "require": {
     "php": ">=7.4",
@@ -28,6 +32,7 @@
     "ext-libxml": "*",
     "alek13/slack": "^2.0",
     "symfony/yaml": "^5.2",
-    "peppeocchi/php-cron-scheduler": "^2.4"
+    "peppeocchi/php-cron-scheduler": "^2.4",
+    "ext-readline": "*"
   }
 }
