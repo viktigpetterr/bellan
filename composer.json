@@ -27,7 +27,7 @@
     "phpstan/phpstan": "^0.12.82"
   },
   "require": {
-    "php": ">=7.4",
+    "php": ">=8.0",
     "ext-dom": "*",
     "ext-libxml": "*",
     "alek13/slack": "^2.0",
