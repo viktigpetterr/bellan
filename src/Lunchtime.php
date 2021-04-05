@@ -54,7 +54,7 @@ class Lunchtime
         }
         catch (ConnectException $e)
         {
-            return "$message\n\n\n{$e->getMessage()}";    
+            return "$message\n\n\n{$e->getMessage()}";
         }
 
         return $message;
@@ -71,7 +71,6 @@ class Lunchtime
             $message .= "\t$restaurant:\n";
             foreach ($dishes as $dish)
             {
-                //printf($dish . "\n");
                 $message .= "\t\t - $dish\n";
             }
             $message .= "\n";
