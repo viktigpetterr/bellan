@@ -15,15 +15,10 @@
 ```sh
   $ composer install
   ```
-```sh
-  $ crontab -e
-```
-- Append the line `* * * * * /usr/bin/php /{path}/bellan/Bellan.php 1>> /dev/null 2>&1`. Make sure to change `{path}` to your path!
-
 **How to add a restaurant**
- - Create a restaurant class that extend `Restaurant.php` in `src/restaurants`.
+ - Create a restaurant class that extends `Restaurant.php` in `src/restaurants`.
  - Implement the functions `parse()` and `__toString()`.
- - Create a test class that extend `RestaurantTest.php` in `tests/restaurants`.
+ - Create a test class that extends `RestaurantTest.php` in `tests/restaurants`.
  - Implement the test functions `testParse()` and `testToString()`. Add a static test file in `tests/static` if needed.
 
 **Run tests**
