@@ -1,6 +1,5 @@
 # Bellan
 
-![Packagist Version](https://img.shields.io/packagist/v/viktigpetterr/lunchtime)
 ![Packagist License](https://img.shields.io/packagist/l/viktigpetterr/lunchtime)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/viktigpetterr/lunchtime/PHP%20Composer)
 [![codecov](https://codecov.io/gh/viktigpetterr/bellan/branch/main/graph/badge.svg?token=DPW9GSYHUK)](https://codecov.io/gh/viktigpetterr/bellan)
