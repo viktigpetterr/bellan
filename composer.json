@@ -12,7 +12,12 @@
   ],
   "autoload": {
     "psr-4": {
-      "viktigpetterr\\bellan\\": "src/"
+      "viktigpetterr\\Bellan\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "viktigpetterr\\Bellan\\Tests\\": "tests/"
     }
   },
   "scripts": {
