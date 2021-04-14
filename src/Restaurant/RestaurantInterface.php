@@ -1,11 +1,11 @@
 <?php
 
 
-namespace viktigpetterr\bellan\restaurants;
+namespace viktigpetterr\Bellan\Restaurant;
 
 /**
  * Interface RestaurantInterface
- * @package bellan\restaurants
+ * @package Bellan\Restaurant
  */
 interface RestaurantInterface
 {

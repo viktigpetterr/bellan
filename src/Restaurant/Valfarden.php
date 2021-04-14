@@ -1,11 +1,11 @@
 <?php
 
 
-namespace viktigpetterr\bellan\restaurants;
+namespace viktigpetterr\Bellan\Restaurant;
 
 /**
  * Class Valfarden
- * @package bellan\restaurants
+ * @package Bellan\Restaurant
  */
 class Valfarden extends Restaurant
 {

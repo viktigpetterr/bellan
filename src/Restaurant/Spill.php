@@ -1,11 +1,11 @@
 <?php
 
 
-namespace viktigpetterr\bellan\restaurants;
+namespace viktigpetterr\Bellan\Restaurant;
 
 /**
  * Class Spill
- * @package bellan\restaurants
+ * @package Bellan\Restaurant
  */
 class Spill extends Restaurant
 {

@@ -1,14 +1,14 @@
 <?php
 
 
-namespace viktigpetterr\bellan\restaurants;
+namespace viktigpetterr\Bellan\Restaurant;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 
 /**
  * Class Restaurant
- * @package bellan\restaurants
+ * @package Bellan\Restaurant
  */
 abstract class Restaurant implements RestaurantInterface
 {
