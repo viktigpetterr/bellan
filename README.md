@@ -15,9 +15,9 @@
   $ composer install
   ```
 **How to add a restaurant**
- - Create a restaurant class that extends `Restaurant.php` in `src/restaurants`.
+ - Create a restaurant class that extends `Restaurant.php` in `src/Restaurant`.
  - Implement the functions `parse()` and `__toString()`.
- - Create a test class that extends `RestaurantTest.php` in `tests/restaurants`.
+ - Create a test class that extends `RestaurantTest.php` in `tests/Restaurant`.
  - Implement the test functions `testParse()` and `testToString()`. Add a static test file in `tests/static` if needed.
 
 **Run tests**
