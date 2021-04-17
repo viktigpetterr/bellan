@@ -36,7 +36,7 @@ class Lunchtime
 
         foreach ($restaurants as $restaurant)
         {
-            $restaurant = "viktigpetterr\\bellan\\restaurants\\$restaurant";
+            $restaurant = __NAMESPACE__  . "\\Restaurant\\$restaurant";
             $this->restaurants[] = new $restaurant;
         }
     }
