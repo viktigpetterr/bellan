@@ -2,7 +2,7 @@
 
 use GO\Scheduler;
 use Symfony\Component\Yaml\Yaml;
-use viktigpetterr\bellan\Lunchtime;
+use viktigpetterr\Bellan\Lunchtime;
 
 $workingHours = Yaml::parse(file_get_contents(__DIR__ . '/working-hours.yaml'));
 $days = $workingHours['DAYS'];
