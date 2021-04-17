@@ -1,10 +1,12 @@
 <?php
 
 
-use viktigpetterr\bellan\Lunchtime;
+namespace viktigpetterr\Bellan\Tests;
+
+use viktigpetterr\Bellan\Lunchtime;
 use PHPUnit\Framework\TestCase;
-use viktigpetterr\bellan\restaurants\Spill;
-use viktigpetterr\bellan\restaurants\Valfarden;
+use viktigpetterr\Bellan\Restaurant\Spill;
+use viktigpetterr\Bellan\Restaurant\Valfarden;
 
 /**
  * Class LunchtimeTest

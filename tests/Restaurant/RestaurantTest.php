@@ -1,14 +1,14 @@
 <?php
 
 
-namespace restaurants;
+namespace viktigpetterr\Bellan\Tests\Restaurant;
 
 use PHPUnit\Framework\TestCase;
-use viktigpetterr\bellan\restaurants\Restaurant;
+use viktigpetterr\Bellan\Restaurant\Restaurant;
 
 /**
  * Abstract Class RestaurantTest
- * @package restaurants
+ * @package Bellan\Tests\Restaurant
  */
 abstract class RestaurantTest extends TestCase
 {

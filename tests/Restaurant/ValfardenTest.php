@@ -1,13 +1,13 @@
 <?php
 
 
-namespace restaurants;
+namespace viktigpetterr\Bellan\Tests\Restaurant;
 
-use viktigpetterr\bellan\restaurants\Valfarden;
+use viktigpetterr\Bellan\Restaurant\Valfarden;
 
 /**
  * Class ValfardenTest
- * @package restaurants
+ * @package Bellan\Tests\Restaurant
  */
 class ValfardenTest extends RestaurantTest
 {

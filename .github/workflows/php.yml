@@ -31,7 +31,7 @@ jobs:
         run: composer install --prefer-dist --no-progress --no-suggest --no-scripts
 
       - name: Run PHPStan
-        run: vendor/bin/phpstan analyse src tests --level 5
+        run: composer php-stan
 
       - name: Run test suite
         run: composer test-coverage

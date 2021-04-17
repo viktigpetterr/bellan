@@ -1,16 +1,15 @@
 <?php
 
 
-namespace viktigpetterr\bellan;
-
+namespace viktigpetterr\Bellan;
 
 use GuzzleHttp\Exception\ConnectException;
 use Maknz\Slack\Client;
-use viktigpetterr\bellan\restaurants\Restaurant;
+use viktigpetterr\Bellan\Restaurant\Restaurant;
 
 /**
  * Class Lunchtime
- * @package bellan
+ * @package Bellan
  */
 class Lunchtime
 {
@@ -37,7 +36,7 @@ class Lunchtime
 
         foreach ($restaurants as $restaurant)
         {
-            $restaurant = "viktigpetterr\\bellan\\restaurants\\$restaurant";
+            $restaurant = __NAMESPACE__  . "\\Restaurant\\$restaurant";
             $this->restaurants[] = new $restaurant;
         }
     }

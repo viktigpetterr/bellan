@@ -1,12 +1,13 @@
 <?php
 
-namespace restaurants;
 
+namespace viktigpetterr\Bellan\Tests\Restaurant;
 
-use viktigpetterr\bellan\restaurants\Spill;
+use viktigpetterr\Bellan\Restaurant\Spill;
 
 /**
  * Class SpillTest
+ * @package Bellan\Tests\Restaurant
  */
 class SpillTest extends RestaurantTest
 {

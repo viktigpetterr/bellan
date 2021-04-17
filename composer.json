@@ -12,7 +12,12 @@
   ],
   "autoload": {
     "psr-4": {
-      "viktigpetterr\\bellan\\": "src/"
+      "viktigpetterr\\Bellan\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "viktigpetterr\\Bellan\\Tests\\": "tests/"
     }
   },
   "scripts": {
@@ -20,7 +25,8 @@
     "test-coverage": "XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover coverage.xml",
     "post-install-cmd": [
       "php install.php"
-    ]
+    ],
+    "php-stan": "vendor/bin/phpstan analyse src tests --level 5"
   },
   "require-dev": {
     "phpunit/phpunit": "^9.5",
