@@ -4,16 +4,15 @@ use GO\Scheduler;
 use Symfony\Component\Yaml\Yaml;
 use viktigpetterr\Bellan\Lunchtime;
 
-$workingHours = Yaml::parse(file_get_contents(__DIR__ . '/working-hours.yaml'));
-$days = $workingHours['DAYS'];
-$postAt = $workingHours['POST_AT'];
-$timeZone = $workingHours['TIME_ZONE'];
+$config = Yaml::parse(file_get_contents(__DIR__ . '/bellan.yaml'));
+$days = $config['DAYS'];
+$postAt = $config['POST_AT'];
+$timeZone = $config['TIME_ZONE'];
 date_default_timezone_set($timeZone);
 [$hour, $minute] = explode(':', $postAt);
 $scheduler = new Scheduler();
 $scheduler
-    ->call(function () {
-        $config = Yaml::parse(file_get_contents(__DIR__ . '/bellan.yaml'));
+    ->call(function () use ($config) {
         return (new Lunchtime($config['WEB_HOOK'], $config['RESTAURANTS']))->execute();
     })
     ->output(__DIR__ . '/bellan.log')
