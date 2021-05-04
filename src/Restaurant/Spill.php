@@ -11,7 +11,7 @@ class Spill extends Restaurant
 {
     private const NAME = 'SPILL';
     private const URL = 'https://restaurangspill.se/';
-    private const REGEX = '/&nbsp;<\/p><p>(.+?)<\/p><p>|<span style="font-size: 1.5rem;">(.+? &nbsp;)<\/s/';
+    private const REGEX = '/<\/span><\/p><p>(.+)<\/span><\/p><p><span style="font-size: 1.5rem;"><br><\/span><\/p><p>/U';
 
     /**
      * @inheritDoc
@@ -25,22 +25,23 @@ class Spill extends Restaurant
         if (!empty($html))
         {
             preg_match_all(self::REGEX, $html, $matches);
-            $matches1 = $matches[1];
-            $matches2 = $matches[2];
-            $matches = array_merge($matches1, $matches2);
-
+            $matches = $matches[1];
             foreach ($matches as $match) {
                 if (!empty($match))
                 {
-                    $match = str_replace('&nbsp;', ' ', $match);
-                    $match = str_replace('  ', ' ', $match);
-                    $match = trim(html_entity_decode($match));
-                    $this->dishes[] = trim($match);
+                    $rawDishes = preg_split('/<\/p><br><p><span style="font-size: 1.5rem;">/', $match);
+                    foreach ($rawDishes as $rawDish)
+                    {
+                        $rawDish = str_replace('&nbsp;', ' ', $rawDish);
+                        $rawDish = str_replace('  ', ' ', $rawDish);
+                        $rawDish = trim(html_entity_decode($rawDish));
+                        $this->dishes[] = trim($rawDish);
+                    }
                 }
             }
         }
 
-        return $this->dishes;
+        return $this->validDishes() ? $this->dishes : [];
     }
 
     /**
@@ -49,5 +50,13 @@ class Spill extends Restaurant
     public function __toString(): string
     {
         return self::NAME;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getURL(): string
+    {
+        return self::URL;
     }
 }

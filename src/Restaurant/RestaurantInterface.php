@@ -23,4 +23,11 @@ interface RestaurantInterface
      * @return string
      */
     public function __toString(): string;
+
+    /**
+     * Return the URL from which the lunch dishes are parsed
+     *
+     * @return string
+     */
+    public function getURL(): string;
 }

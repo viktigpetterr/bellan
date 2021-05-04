@@ -47,7 +47,7 @@ class Valfarden extends Restaurant
             }
         }
 
-        return $this->dishes;
+        return $this->validDishes() ? $this->dishes : [];
     }
 
     /**
@@ -70,5 +70,13 @@ class Valfarden extends Restaurant
         }
 
         return $date;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getURL(): string
+    {
+        return self::URL;
     }
 }
