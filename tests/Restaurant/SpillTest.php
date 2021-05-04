@@ -12,7 +12,7 @@ use viktigpetterr\Bellan\Restaurant\Spill;
 class SpillTest extends RestaurantTest
 {
 
-    const HTML_FILE = __DIR__ . '/static/spill.html';
+    private const HTML_FILE = __DIR__ . '/static/spill.html';
 
     public function setUp(): void
     {
