@@ -11,7 +11,7 @@ class Valfarden extends Restaurant
 {
     private const NAME = 'Välfärden';
     private const URL = 'https://valfarden.nu/dagens-lunch/';
-    private const REGEX = '/<div class="gmail_default" .+">(.+?)<\/div>/';
+    private const REGEX = '/<span style="font-weight: 400;">(.+?)<\/span>/';
 
     /**
      * @inheritDoc
@@ -30,10 +30,19 @@ class Valfarden extends Restaurant
             $matches = $matches[1];
             foreach ($matches as $key => $match)
             {
-                if (strstr($match, " $date ") && key_exists($key + 1, $matches))
+                if (str_contains($match, " $date ") && key_exists($key + 1, $matches))
                 {
-                    $dish = trim(html_entity_decode($matches[$key + 1]));
-                    $this->dishes[] = htmlspecialchars_decode($dish);
+                    $matches = array_slice($matches, $key + 1);
+                    $i = 0;
+                    $match = $matches[$i];
+                    while (!preg_match("/ \d /", $match) && isset($matches[$i]))
+                    {
+                        $dish = trim(html_entity_decode($match));
+                        $this->dishes[] = htmlspecialchars_decode($dish);
+                        $match = $matches[++$i];
+                    }
+
+                    break;
                 }
             }
         }
