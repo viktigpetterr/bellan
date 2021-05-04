@@ -24,8 +24,8 @@ class SpillTest extends RestaurantTest
     {
         $menus = $this->restaurant->parse(file_get_contents(self::HTML_FILE));
         $this->assertCount(2, $menus);
-        $this->assertEquals("Färsbiffar med mangold, pepparsås & potatispuré", $menus[0]);
-        $this->assertEquals("Vegetariskt: Kikärtsbiffar med samma tillbehör", $menus[1]);
+        $this->assertEquals("Kycklinglårfilé med curry, äpple, paprika och persilja", $menus[0]);
+        $this->assertEquals("Vegetariskt: Aubergine i curry, äpple, paprika och persilja", $menus[1]);
     }
 
     public function testToString(): void
