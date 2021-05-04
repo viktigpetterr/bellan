@@ -6,6 +6,7 @@ namespace viktigpetterr\Bellan;
 use GuzzleHttp\Exception\ConnectException;
 use Maknz\Slack\Client;
 use viktigpetterr\Bellan\Restaurant\Restaurant;
+use viktigpetterr\Bellan\Restaurant\RestaurantInterface;
 
 /**
  * Class Lunchtime
@@ -17,7 +18,7 @@ class Lunchtime
     private Client $slack;
 
     /**
-     * @var Restaurant[]
+     * @var RestaurantInterface[]
      */
     private array $restaurants;
 
@@ -65,15 +66,26 @@ class Lunchtime
     private function createMessage(): string
     {
         $message = self::getMessageHeader();
-        foreach ($this->restaurants as $restaurant) {
+
+        foreach ($this->restaurants as $restaurant)
+        {
             $dishes = $restaurant->parse();
             $message .= "\t$restaurant:\n";
-            foreach ($dishes as $dish)
+            if (empty($dishes))
             {
-                $message .= "\t\t - $dish\n";
+                $message .= "\t\t - " . $restaurant->getURL();
             }
+            else
+            {
+                foreach ($dishes as $dish)
+                {
+                    $message .= "\t\t - $dish\n";
+                }
+            }
+
             $message .= "\n";
         }
+
         $message .= self::getMessageFooter();
 
         return $message;

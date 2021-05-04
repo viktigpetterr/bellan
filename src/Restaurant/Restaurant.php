@@ -48,4 +48,22 @@ abstract class Restaurant implements RestaurantInterface
         }
     }
 
+    /**
+     * Validate the dishes by checking the non-existence of html tags.
+     *
+     * @return bool
+     */
+    protected function validDishes(): bool
+    {
+        foreach ($this->dishes as $dish)
+        {
+            if (preg_match('/[<>]/', $dish) || empty($dish))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
 }
