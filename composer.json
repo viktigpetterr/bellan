@@ -37,6 +37,7 @@
     "alek13/slack": "^2.0",
     "symfony/yaml": "^5.2",
     "peppeocchi/php-cron-scheduler": "^2.4",
-    "ext-readline": "*"
+    "ext-readline": "*",
+    "guzzlehttp/guzzle": "^7.3"
   }
 }
