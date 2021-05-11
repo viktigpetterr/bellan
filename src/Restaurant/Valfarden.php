@@ -35,7 +35,7 @@ class Valfarden extends Restaurant
                     $matches = array_slice($matches, $key + 1);
                     $i = 0;
                     $match = $matches[$i];
-                    while (isset($match) && !preg_match("/ \d /", $match))
+                    while (isset($match) && !preg_match("/ \d+ /", $match))
                     {
                         $dish = trim(html_entity_decode($match));
                         $this->dishes[] = htmlspecialchars_decode($dish);
