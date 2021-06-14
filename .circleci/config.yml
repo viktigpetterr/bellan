@@ -4,10 +4,10 @@
 #
 version: 2
 jobs:
-  build:
+  test:
     docker:
       # Specify the version you desire here
-      - image: circleci/php:7.1-node-browsers
+      - image: cimg/php:8.0.7
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -49,3 +49,16 @@ jobs:
       - run: ./vendor/bin/codecept run
       - run: composer php-stan
       - run: composer test-coverage
+
+  debricked:
+    docker:
+      # circleci ignores the entrypoint of debricked-scan, so start the scan manually with a step
+      - image: debricked/debricked-scan
+
+    working_directory: ~/repo
+
+    # set debricked username and password as DEBRICKED_USERNAME and DEBRICKED_PASSWORD respectively,
+    # inside project settings, to avoid storing them in config
+    steps:
+      - checkout
+      - run: bash /circleci.sh
