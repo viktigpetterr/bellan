@@ -1,11 +1,33 @@
+# PHP CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-php/ for more details
+#
+version: 2.1
 workflows:
-  version: 2
   flow:
     jobs:
-      - scan
+      - static
+      - test
+      - debricked
 
 jobs:
-  scan:
+  static:
+    docker:
+      - image: cimg/php:8.0.7
+    steps:
+      - checkout
+      - run: composer install -n --prefer-dist
+      - run: composer php-stan
+
+  test:
+    docker:
+      - image: cimg/php:8.0.7
+    steps:
+      - checkout
+      - run: composer install -n --prefer-dist
+      - run: composer test-coverage
+
+  debricked:
     docker:
       # circleci ignores the entrypoint of debricked-scan, so start the scan manually with a step
       - image: debricked/debricked-scan
