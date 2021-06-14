@@ -2,12 +2,14 @@
 #
 # Check https://circleci.com/docs/2.0/language-php/ for more details
 #
-version: 2
-flow:
-  jobs:
-    - static
-    - test
-    - debricked
+version: 2.1
+workflows:
+  flow:
+    jobs:
+      - static
+      - test
+      - debricked
+
 jobs:
   static:
     docker:
