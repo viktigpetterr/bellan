@@ -8,7 +8,7 @@ flow:
     - static
     - test
     - debricked
-
+jobs:
   static:
     docker:
       - image: cimg/php:8.0.7
