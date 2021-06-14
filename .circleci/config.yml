@@ -6,19 +6,9 @@ version: 2.1
 workflows:
   flow:
     jobs:
-      - static
       - test
       - debricked
-
 jobs:
-  static:
-    docker:
-      - image: cimg/php:8.0.7
-    steps:
-      - checkout
-      - run: composer install -n --prefer-dist
-      - run: composer php-stan
-
   test:
     docker:
       - image: cimg/php:8.0.7
