@@ -5,18 +5,9 @@
 version: 2
 flow:
   jobs:
-    - build
     - static
     - test
     - debricked
-
-jobs:
-  build:
-    docker:
-      - image: cimg/php:8.0.7
-    steps:
-      - checkout
-      - run: composer install -n --prefer-dist
 
   static:
     docker:
