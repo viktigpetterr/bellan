@@ -5,17 +5,33 @@
 version: 2
 flow:
   jobs:
+    - build
+    - static
     - test
     - debricked
 
 jobs:
-  test:
+  build:
+    docker:
+      - image: cimg/php:8.0.7
+    steps:
+      - checkout
+      - run: composer install -n --prefer-dist
+
+  static:
     docker:
       - image: cimg/php:8.0.7
     steps:
       - checkout
       - run: composer install -n --prefer-dist
       - run: composer php-stan
+
+  test:
+    docker:
+      - image: cimg/php:8.0.7
+    steps:
+      - checkout
+      - run: composer install -n --prefer-dist
       - run: composer test-coverage
 
   debricked:
