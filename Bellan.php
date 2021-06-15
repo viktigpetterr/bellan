@@ -19,7 +19,3 @@ $scheduler
     ->at("$minute $hour * * $days");
 
 $scheduler->run();
-
-
-
-
