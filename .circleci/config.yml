@@ -1,0 +1,67 @@
+# PHP CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-php/ for more details
+#
+version: 2
+
+executors:
+  executor:
+    docker:
+      - image: cimg/php:8.0.7
+    working_directory: workspace
+
+workflows:
+  version: 2
+  Bellan CI:
+    jobs:
+      - build
+      - static:
+          requires:
+            - build
+      - test:
+          requires:
+            - build
+  Debricked scan:
+    jobs:
+      - debricked-scan
+
+jobs:
+
+  build:
+    executor: executor
+    steps:
+      - checkout
+      - run: composer install -n --prefer-dist
+      # Save workspace for subsequent jobs (i.e. test and static)
+      - persist_to_workspace:
+        root: .
+        paths:
+          - .
+
+  static:
+    executor: executor
+    steps:
+      - attach_workspace:
+          at: workspace
+      - run: composer php-stan
+      # Reuse the workspace from the build job
+
+  test:
+    executor: executor
+    steps:
+      - attach_workspace:
+          at: .
+      - run: composer test-coverage
+
+  debricked-scan:
+    docker:
+      # circleci ignores the entrypoint of debricked-scan, so start the scan manually with a step
+      - image: debricked/debricked-scan
+
+    working_directory: ~/repo
+
+    # set debricked username and password as DEBRICKED_USERNAME and DEBRICKED_PASSWORD respectively,
+    # inside project settings, to avoid storing them in config
+    steps:
+      - checkout
+      - run: bash /circleci.sh
