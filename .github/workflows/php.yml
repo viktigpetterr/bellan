@@ -24,7 +24,7 @@ jobs:
         if: steps.composer-cache.outputs.cache-hit != 'true'
         run: composer install --prefer-dist --no-progress --no-suggest --no-scripts
 
-  test:
+  static:
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -45,6 +45,25 @@ jobs:
 
       - name: Run PHPStan
         run: composer php-stan
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Cache Composer packages
+        id: composer-cache
+        uses: actions/cache@v2
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-
+
+      - name: Install dependencies
+        if: steps.composer-cache.outputs.cache-hit != 'true'
+        run: composer install --prefer-dist --no-progress --no-suggest --no-scripts
 
       - name: Run test suite
         run: composer test-coverage
