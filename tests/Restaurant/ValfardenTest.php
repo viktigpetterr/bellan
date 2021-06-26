@@ -1,6 +1,5 @@
 <?php
 
-
 namespace viktigpetterr\Bellan\Tests\Restaurant;
 
 use viktigpetterr\Bellan\Restaurant\Valfarden;
@@ -23,8 +22,14 @@ class ValfardenTest extends RestaurantTest
     {
         $menus = $this->restaurant->parse(file_get_contents(self::HTML_FILE));
         $this->assertCount(2, $menus);
-        $this->assertEquals("Ugnsbakad lax med romsås, citron, färsk dill, rostad potatis & blomkål sam färsk spenat", $menus[0]);
-        $this->assertEquals("Ugnsbakad blomkål med brynt ramslökssmör, citron, dill, rostad potatis samt krossade nötter", $menus[1]);
+        $this->assertEquals(
+            "Ugnsbakad lax med romsås, citron, färsk dill, rostad potatis & blomkål sam färsk spenat",
+            $menus[0]
+        );
+        $this->assertEquals(
+            "Ugnsbakad blomkål med brynt ramslökssmör, citron, dill, rostad potatis samt krossade nötter",
+            $menus[1]
+        );
     }
 
     public function testToString(): void

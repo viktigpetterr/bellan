@@ -1,6 +1,5 @@
 <?php
 
-
 namespace viktigpetterr\Bellan\Restaurant;
 
 use GuzzleHttp\Client;
@@ -36,12 +35,9 @@ abstract class Restaurant implements RestaurantInterface
      */
     protected function request(string $url): ?string
     {
-        try
-        {
+        try {
             return $this->client->get($url)->getBody()->getContents();
-        }
-        catch (GuzzleException $e)
-        {
+        } catch (GuzzleException $e) {
             printf($e);
 
             return null;
@@ -55,15 +51,12 @@ abstract class Restaurant implements RestaurantInterface
      */
     protected function validDishes(): bool
     {
-        foreach ($this->dishes as $dish)
-        {
-            if (preg_match('/[<>]/', $dish) || empty($dish))
-            {
+        foreach ($this->dishes as $dish) {
+            if (preg_match('/[<>]/', $dish) || empty($dish)) {
                 return false;
             }
         }
 
         return true;
     }
-
 }

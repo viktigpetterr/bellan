@@ -1,6 +1,5 @@
 <?php
 
-
 namespace viktigpetterr\Bellan\Restaurant;
 
 /**

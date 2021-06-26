@@ -1,6 +1,5 @@
 <?php
 
-
 namespace viktigpetterr\Bellan\Tests;
 
 use viktigpetterr\Bellan\Lunchtime;
@@ -29,8 +28,7 @@ class LunchtimeTest extends TestCase
         $this->assertStringContainsString(new Valfarden(), $message);
         $this->assertStringContainsString(new Spill(), $message);
         $this->assertStringContainsString(self::CURL_ERROR, $message);
-        foreach (self::BLACKLIST as $symbol)
-        {
+        foreach (self::BLACKLIST as $symbol) {
             $this->assertStringNotContainsString($symbol, $message);
         }
     }

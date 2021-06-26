@@ -1,6 +1,5 @@
 <?php
 
-
 namespace viktigpetterr\Bellan\Tests\Restaurant;
 
 use GuzzleHttp\Client;
@@ -24,9 +23,9 @@ abstract class RestaurantTest extends TestCase
         $this->client = new Client();
     }
 
-    public abstract function testParse(): void;
+    abstract public function testParse(): void;
 
-    public abstract function testToString(): void;
+    abstract public function testToString(): void;
 
     public function testURL(): void
     {

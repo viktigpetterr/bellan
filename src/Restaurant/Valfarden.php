@@ -1,6 +1,5 @@
 <?php
 
-
 namespace viktigpetterr\Bellan\Restaurant;
 
 /**
@@ -19,24 +18,19 @@ class Valfarden extends Restaurant
      */
     public function parse(string $html = ''): array
     {
-        if (empty($html))
-        {
+        if (empty($html)) {
             $html = $this->request(self::URL);
         }
-        if (!empty($html))
-        {
+        if (!empty($html)) {
             preg_match_all(self::REGEX, $html, $matches);
             $date = $this->getDate();
             $matches = $matches[1];
-            foreach ($matches as $key => $match)
-            {
-                if (str_contains($match, " $date ") && key_exists($key + 1, $matches))
-                {
+            foreach ($matches as $key => $match) {
+                if (str_contains($match, " $date ") && key_exists($key + 1, $matches)) {
                     $matches = array_slice($matches, $key + 1);
                     $i = 0;
                     $match = $matches[$i];
-                    while (isset($match) && !preg_match("/ \d+ /", $match))
-                    {
+                    while (isset($match) && !preg_match("/ \d+ /", $match)) {
                         $dish = trim(html_entity_decode($match));
                         $this->dishes[] = htmlspecialchars_decode($dish);
                         ++$i;
@@ -65,8 +59,7 @@ class Valfarden extends Restaurant
     private function getDate(): string
     {
         $date = date('d');
-        if ($date[0] === '0')
-        {
+        if ($date[0] === '0') {
             $date = substr($date, 1);
         }
 

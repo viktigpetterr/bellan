@@ -1,6 +1,5 @@
 <?php
 
-
 namespace viktigpetterr\Bellan;
 
 use GuzzleHttp\Exception\ConnectException;
@@ -35,10 +34,9 @@ class Lunchtime
             ];
         $this->slack = new Client($webhook, $options);
 
-        foreach ($restaurants as $restaurant)
-        {
+        foreach ($restaurants as $restaurant) {
             $restaurant = __NAMESPACE__  . "\\Restaurant\\$restaurant";
-            $this->restaurants[] = new $restaurant;
+            $this->restaurants[] = new $restaurant();
         }
     }
 
@@ -48,12 +46,9 @@ class Lunchtime
     public function execute(): ?string
     {
         $message = $this->createMessage();
-        try
-        {
+        try {
             $this->slack->send($message);
-        }
-        catch (ConnectException $e)
-        {
+        } catch (ConnectException $e) {
             return "$message\n\n\n{$e->getMessage()}";
         }
 
@@ -67,18 +62,13 @@ class Lunchtime
     {
         $message = self::getMessageHeader();
 
-        foreach ($this->restaurants as $restaurant)
-        {
+        foreach ($this->restaurants as $restaurant) {
             $dishes = $restaurant->parse();
             $message .= "\t$restaurant:\n";
-            if (empty($dishes))
-            {
+            if (empty($dishes)) {
                 $message .= "\t\t - " . $restaurant->getURL();
-            }
-            else
-            {
-                foreach ($dishes as $dish)
-                {
+            } else {
+                foreach ($dishes as $dish) {
                     $message .= "\t\t - $dish\n";
                 }
             }
@@ -106,5 +96,4 @@ class Lunchtime
     {
         return "\nSmaklig spis!";
     }
-
 }

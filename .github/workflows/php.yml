@@ -46,6 +46,9 @@ jobs:
       - name: Run PHPStan
         run: composer php-stan
 
+      - name: Run PHP_CodeSniffer
+        run: composer phpcs
+
   test:
     needs: build
     runs-on: ubuntu-latest

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace viktigpetterr\Bellan\Tests\Restaurant;
 
 use viktigpetterr\Bellan\Restaurant\Spill;
