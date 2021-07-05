@@ -1,7 +1,6 @@
 # Bellan
-
-![Packagist License](https://img.shields.io/packagist/l/viktigpetterr/lunchtime)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/viktigpetterr/lunchtime/PHP%20Composer)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+![GitHub Workflow Status](https://github.com/viktigpetterr/bellan/actions/workflows/php.yml/badge.svg)
 [![codecov](https://codecov.io/gh/viktigpetterr/bellan/branch/main/graph/badge.svg?token=DPW9GSYHUK)](https://codecov.io/gh/viktigpetterr/bellan)
 
 **Installation**
